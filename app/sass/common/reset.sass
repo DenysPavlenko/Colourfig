@@ -1,0 +1,49 @@
+/* Base reset styles */
+*
+  box-sizing: border-box
+body
+  position: relative
+  overflow-x: hidden
+  background-color: $body-bg
+  margin: 0
+  padding: 0
+  height: 100%
+  &.loaded
+    overflow-y: hidden
+a, a:focus
+  outline: none
+  text-decoration: none
+  color: inherit
+ul
+  padding: 0
+  margin: 0
+  list-style: none
+figure, h1, h2, h3, h4, h5, p
+  margin: 0
+  padding: 0
+input, textarea
+  outline: none
+  border: none
+  box-shadow: none
+input::-ms-clear
+  display: none
+  height: 0
+  width: 0
+input, select, textarea, button
+  font-family: inherit
+button
+  border: none
+  padding: 0
+  margin: 0
+  background-color: transparent
+  cursor: pointer
+  &:focus
+  outline: none
+button::-moz-focus-inner
+  border: 0
+img
+  max-width: 100%
+  border-style: none
+img.image
+  width: 100%
+  height: auto

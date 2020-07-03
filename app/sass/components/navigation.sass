@@ -1,0 +1,28 @@
+.navigation
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  padding: 30px 0
+  user-select: none
+  &__logo
+    font-size: rem(58px)
+    font-family: 'Teko', sans-serif
+    color: $text-light
+    line-height: 1
+    font-weight: 600
+    margin-right: 30px
+    cursor: default
+  &__menu
+    &-item
+      font-size: rem(15px)
+      line-height: 1
+      font-weight: 400
+      color: $text-light
+      transition: 0.2s
+      &:not(:last-child)
+        margin-right: 40px
+      &:hover
+        opacity: 0.7
+      &:focus
+        color: $text-light

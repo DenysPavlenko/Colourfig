@@ -1,0 +1,27 @@
+.spinner
+  position: relative
+  font-size: 8px
+  border-top: 1.1em solid #cccccc
+  border-right: 1.1em solid #cccccc
+  border-bottom: 1.1em solid #cccccc
+  border-left: 1.1em solid $color-blue
+  transform: translateZ(0)
+  animation: load8 1.1s infinite linear
+  border-radius: 50%
+  width: 10em
+  height: 10em
+  &.spinner--light
+    border-top: 1.1em solid rgba(255, 255, 255, 0.4)
+    border-right: 1.1em solid rgba(255, 255, 255, 0.4)
+    border-bottom: 1.1em solid rgba(255, 255, 255, 0.4)
+    border-left: 1.1em solid $color-light
+  &:after
+    border-radius: 50%
+    width: 10em
+    height: 10em
+
+@keyframes load8
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

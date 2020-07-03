@@ -1,0 +1,16 @@
+.header
+  .container
+    .row
+      .col-12
+        .header__navigation
+          include ./navigation
+    .row
+      .col-12.col-lg-6
+        .header__info
+          h1.header__title.animated(data-scroll-animation="fadeInUp") Presentation, Grant, Publication Ready Colour Schemes in Seconds.
+          p.header__text.animated(data-scroll-animation="fadeInUp" data-scroll-animation-delay="0.1s") Upload or drag your .ai or .eps line fig, we will automatically detect the elements in your fig, present you with an array of beautiful colour schemes taliored to your data so your grant, presentation or publication stands out from the rest. Save the new figs to your local drive to make additional edits if needed. Its easy, super fast and free!
+          button(class="button header__button animated" data-scroll-animation="fadeInUp" data-scroll-animation-delay="0.2s") UPLOAD FIG
+
+      .col-12.col-lg-6
+        .header__upload
+          include ./file-upload

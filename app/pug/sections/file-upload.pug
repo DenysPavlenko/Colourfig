@@ -1,0 +1,18 @@
+form.file-upload
+  input(class="file-upload__input" aria-label="Drag &amp; Drop the File(s) Here" tabindex="-1" type="file" autocomplete="off"  accept=".eps, .ai")
+  p.file-upload__text Drop fig here or upload from cloud
+  .file-upload__icons
+    .file-upload__icon
+      include ../../static/images/dropbox.svg
+    .file-upload__icon
+      include ../../static/images/google-drive.svg
+    .file-upload__icon
+      include ../../static/images/onedrive.svg
+  .file-upload__loading
+  .file-upload__message
+    .container
+      .row
+        .col-12
+          span.file-upload__message-text
+          .file-upload__message-close
+            include ../../static/images/close.svg

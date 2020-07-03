@@ -1,0 +1,24 @@
+.button
+  display: inline-flex
+  padding: 16px 40px
+  text-align: center
+  text-transform: uppercase
+  font-size: rem(15px)
+  line-height: 1
+  font-weight: 400
+  color: $text-light
+  background-color: $color-purple
+  border-radius: 10px
+  transition: 0.2s
+  &:hover
+    background-color: lighten($color-purple, 8)
+  &:focus
+    color: $text-light
+  &--sm
+    padding: 12px 20px
+    font-size: rem(13px)
+    text-transform: none
+  &--light
+    background-color: $color-purple-light
+    &:hover
+      background-color: darken($color-purple-light, 8)

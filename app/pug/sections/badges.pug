@@ -1,0 +1,10 @@
+.badges.animated(data-scroll-animation="fadeIn")
+  .container
+    .row
+      .col-12
+        .badges__wrap
+          -var cnt = 1
+          while cnt <= 10
+            .badges__badge
+              img(src=`images/badge-${cnt}.png`, alt="badge")
+            -cnt++

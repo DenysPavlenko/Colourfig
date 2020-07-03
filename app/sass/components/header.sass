@@ -1,0 +1,28 @@
+.header
+  background-color: $color-blue
+  padding-bottom: 90px
+  color: $text-light
+  &__navigation
+    margin-bottom: 40px
+  &__title
+    margin-bottom: 30px
+    &:after
+      content: ''
+      display: block
+      width: 40px
+      height: 1px
+      margin-top: 20px
+      background-color: $color-gray
+  &__text
+    margin-bottom: 40px
+
+  &__upload
+    margin-left: 30px
+
+
++media-max($bp-lg)
+  .header
+    &__info
+      margin-bottom: 40px
+    &__upload
+      margin-left: 0

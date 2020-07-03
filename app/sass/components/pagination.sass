@@ -1,0 +1,26 @@
+.pagination
+  display: flex
+  flex-wrap: wrap
+  margin-left: -5px
+  margin-right: -5px
+  &__item
+    background-color: $color-light
+    border: 1px solid #e6e6e6
+    width: 35px
+    height: 35px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: rem(14px)
+    line-height: 1
+    font-weight: 400
+    cursor: pointer
+    color: #cccccc
+    transition: 0.2s
+    margin: 5px
+
+    &:hover
+      background-color: $color-gray
+    &--active
+      background-color: $color-gray
+      border-color: $color-gray
