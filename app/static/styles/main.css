@@ -622,6 +622,12 @@ p,
   background-color: #ffffff;
 }
 
+.badges__title {
+  text-align: center;
+  color: #808080;
+  margin-bottom: 15px;
+}
+
 .badges__wrap {
   display: -webkit-box;
   display: -ms-flexbox;
