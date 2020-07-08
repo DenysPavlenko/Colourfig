@@ -1,5 +1,47 @@
 'use strict';
 
+function scrollAnimations () {
+	var $items = $('[data-scroll-animation]');
+	var windowHeight = $(window).height();
+var bottomOffset = '80%';
+	var resizeEnd;
+
+	// Change windowHeight on resize
+	$(window).on('resize', function () {
+		clearTimeout(resizeEnd);
+		resizeEnd = setTimeout(function () {
+			windowHeight = $(window).height();
+		}, 100);
+	});
+	// Run scrollAnimation
+	scrollAnimation();
+	// ScrollAnimation on window scroll
+	$(window).on('scroll', scrollAnimation);
+
+	// Scroll animation function
+	function scrollAnimation() {
+		var windowScrollTop = $(window).scrollTop();
+		var windowOffset = windowScrollTop + windowHeight * parseInt(bottomOffset) / 100;
+
+		// Add animation class to element
+		$items.each(function () {
+			var elem = $(this);
+			if (elem.offset().top <= windowOffset) {
+				var animationClass = elem.attr('data-scroll-animation');
+				var animationDelay = elem.attr('data-scroll-animation-delay');
+				elem
+					.css({
+						'-webkit-animation-delay': animationDelay,
+						'-mox-animation-delay': animationDelay,
+						'-o-animation-delay': animationDelay,
+						'animation-delay': animationDelay,
+					})
+					.addClass(animationClass);
+			}
+		});
+	}
+}
+
 function preloader () {
   var $preloader = $('.preloader');
   var $body = $('body');
@@ -8,61 +50,8 @@ function preloader () {
   $body.removeClass('loaded');
 }
 
-function graphics () {
-  var $pagination = $('.pagination__item');
-  var $arrows = $('.graphics__arrow');
-  var $pages = $('.graphics__page');
-
-  var currentPage = 1;
-  var pagesQuant = $pages.length;
-
-  $pagination.on('click', function () {
-    var $this = $(this);
-    currentPage = +$this.attr('data-page-number');
-    switchPagination(currentPage);
-    switchPage(currentPage);
-  });
-
-  $arrows.on('click', function () {
-    var $arrow = $(this);
-    var dataArrow = $arrow.attr('data-arrow');
-    if (dataArrow === 'prev') {
-      currentPage--;
-      if (currentPage < 1) {
-        currentPage = pagesQuant;
-      }
-      switchPage(currentPage);
-      switchPagination(currentPage);
-    }
-    else if (dataArrow === 'next') {
-      currentPage++;
-      if (currentPage > pagesQuant) {
-        currentPage = 1;
-      }
-      switchPagination(currentPage);
-      switchPage(currentPage);
-    }
-  });
-
-  function switchPage(pageNumber) {
-    $pages.removeClass('graphics__page--active');
-    $pages.each(function () {
-      var $page = $(this);
-      var dataPage = +$page.attr('data-page');
-      if (pageNumber === dataPage) {
-        $page.addClass('graphics__page--active');
-      }
-    });
-  }
-
-  function switchPagination(currentPage) {
-    $pagination.removeClass('pagination__item--active');
-    $pagination.eq(currentPage - 1).addClass('pagination__item--active');
-  }
-}
-
 function fileUpload () {
-  var $buttons = $('.header__button, .graphics__button--upload');
+  var $buttons = $('.header__button');
   var $messagePopup = $('.file-upload__message');
   var $messageText = $('.file-upload__message-text');
   var $messageClose = $('.file-upload__message-close');
@@ -150,53 +139,19 @@ function filesDownload () {
   }
 }
 
-function scrollAnimations () {
-	var $items = $('[data-scroll-animation]');
-	var windowHeight = $(window).height();
-var bottomOffset = '80%';
-	var resizeEnd;
-
-	// Change windowHeight on resize
-	$(window).on('resize', function () {
-		clearTimeout(resizeEnd);
-		resizeEnd = setTimeout(function () {
-			windowHeight = $(window).height();
-		}, 100);
-	});
-	// Run scrollAnimation
-	scrollAnimation();
-	// ScrollAnimation on window scroll
-	$(window).on('scroll', scrollAnimation);
-
-	// Scroll animation function
-	function scrollAnimation() {
-		var windowScrollTop = $(window).scrollTop();
-		var windowOffset = windowScrollTop + windowHeight * parseInt(bottomOffset) / 100;
-
-		// Add animation class to element
-		$items.each(function () {
-			var elem = $(this);
-			if (elem.offset().top <= windowOffset) {
-				var animationClass = elem.attr('data-scroll-animation');
-				var animationDelay = elem.attr('data-scroll-animation-delay');
-				elem
-					.css({
-						'-webkit-animation-delay': animationDelay,
-						'-mox-animation-delay': animationDelay,
-						'-o-animation-delay': animationDelay,
-						'animation-delay': animationDelay,
-					})
-					.addClass(animationClass);
-			}
-		});
-	}
+function uploadButton () {
+  var $button = $('.graphics__button--upload');
+  $button.on('click', function (e) {
+    e.preventDefault();
+    $('html').animate({ scrollTop: 0 });
+  });
 }
 
 // On document ready
 $(function () {
-  graphics();
   fileUpload();
   filesDownload();
+  uploadButton();
 });
 
 // On window load

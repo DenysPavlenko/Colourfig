@@ -4,37 +4,14 @@ include ./waiting-screen
   .container
     .row
       .col-12
-        .graphics__navigation
-          .graphics__pagination
-            .pagination
-              .pagination__item(data-page-number="1").pagination__item--active 1
-              -var cnt = 2
-              while cnt <= 10
-                .pagination__item(data-page-number=`${cnt}`) #{cnt++}
-          .graphics__buttons
-            button(class="button button--sm button--light graphics__button graphics__button--download") Download all figs
-            button(class="button button--sm button--light graphics__button graphics__button--upload") Upload new fig
+        .graphics__buttons
+          button(class="button button--sm graphics__button graphics__button--download") Download all figs
+          button(class="button button--sm graphics__button graphics__button--upload") Upload new fig
 
         //- Pages
-        .graphics__pages
-          .graphics__arrows
-            .graphics__arrow(data-arrow="prev") <
-            .graphics__arrow(data-arrow="next") >
-          .graphics__page.graphics__page--active(data-page="1")
-            .graphics__wrap
-              -var cnt = 0
-              while cnt < 10
-                .graphics__graphic
-                  img(src="images/graphic.png", class="image" alt="graphic")
-                -cnt++
-
-          -var page = 2
-          while page <= 10
-            .graphics__page(data-page=`${page}`)
-              .graphics__wrap
-                -var cnt = 0
-                while cnt < 10
-                  .graphics__graphic
-                    img(src="images/graphic.png", class="image" alt="graphic")
-                  -cnt++
-            -page++
+        .graphics__wrap
+          -var cnt = 0
+          while cnt < 100
+            .graphics__graphic.animated(data-scroll-animation="fadeIn")
+              include ./graphic
+            -cnt++

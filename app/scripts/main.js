@@ -1,16 +1,16 @@
 'use strict'
 // Modules
+import scrollAnimations from './modules/scroll-animations';
 import preloader from './modules/preloader';
-import graphics from './modules/graphics';
 import fileUpload from './modules/file-upload';
 import filesDownload from './modules/files-download';
-import scrollAnimations from './modules/scroll-animations';
+import uploadButton from './modules/upload-button';
 
 // On document ready
 $(function () {
-  graphics();
   fileUpload();
   filesDownload();
+  uploadButton();
 });
 
 // On window load

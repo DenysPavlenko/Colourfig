@@ -1,5 +1,5 @@
 export default function () {
-  var $buttons = $('.header__button, .graphics__button--upload');
+  var $buttons = $('.header__button');
   var $messagePopup = $('.file-upload__message');
   var $messageText = $('.file-upload__message-text');
   var $messageClose = $('.file-upload__message-close');
